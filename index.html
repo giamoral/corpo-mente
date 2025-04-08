@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corpo & Mente</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+    }
+    input, button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .menu button {
+      width: 32%;
+      margin: 1%;
+    }
+    .screen {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="login" class="screen active">
+      <h2>Corpo & Mente</h2>
+      <input type="text" placeholder="CPF" id="cpf">
+      <input type="password" placeholder="Senha" id="senha">
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div id="menu" class="screen">
+      <h3>Selecione a estratégia do seu super poder</h3>
+      <div class="menu">
+        <button onclick="showScreen('mental')">Saúde Mental</button>
+        <button onclick="showScreen('fisica')">Saúde Física</button>
+        <button onclick="showScreen('alimentacao')">Alimentação</button>
+      </div>
+    </div>
+
+    <div id="mental" class="screen">
+      <h3>Guia Saúde Mental</h3>
+      <p>Fale com um psicólogo</p>
+      <p>Pratique o autoconhecimento</p>
+      <button onclick="backToMenu()">Voltar</button>
+    </div>
+
+    <div id="fisica" class="screen">
+      <h3>Guia Saúde Física</h3>
+      <p>Faça exercícios diariamente</p>
+      <p>Durma bem</p>
+      <button onclick="backToMenu()">Voltar</button>
+    </div>
+
+    <div id="alimentacao" class="screen">
+      <h3>Guia Alimentação</h3>
+      <p>Coma frutas e legumes</p>
+      <p>Evite alimentos ultraprocessados</p>
+      <button onclick="backToMenu()">Voltar</button>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const cpf = document.getElementById('cpf').value;
+      const senha = document.getElementById('senha').value;
+      if (cpf && senha) {
+        showScreen('menu');
+      } else {
+        alert('Preencha todos os campos');
+      }
+    }
+
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function backToMenu() {
+      showScreen('menu');
+    }
+  </script>
+</body>
+</html>
