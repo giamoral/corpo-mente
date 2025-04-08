@@ -34,10 +34,19 @@
     .active {
       display: block;
     }
+    .item {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Tela de Login -->
     <div id="login" class="screen active">
       <h2>Corpo & Mente</h2>
       <input type="text" placeholder="CPF" id="cpf">
@@ -45,6 +54,7 @@
       <button onclick="login()">Login</button>
     </div>
 
+    <!-- Menu Principal -->
     <div id="menu" class="screen">
       <h3>Selecione a estratégia do seu super poder</h3>
       <div class="menu">
@@ -54,24 +64,38 @@
       </div>
     </div>
 
+    <!-- Tela de Saúde Mental -->
     <div id="mental" class="screen">
       <h3>Guia Saúde Mental</h3>
-      <p>Fale com um psicólogo</p>
-      <p>Pratique o autoconhecimento</p>
+      <div class="item" onclick="showScreen('psicologo')">🟪 Fale com psicólogo virtual</div>
+      <div class="item">🟧 Mensagens motivacionais</div>
+      <div class="item">🟩 Aprenda a meditar</div>
+      <div class="item">🟥 Pratique técnica de relaxamento</div>
       <button onclick="backToMenu()">Voltar</button>
     </div>
 
+    <!-- Tela de Psicólogo Virtual -->
+    <div id="psicologo" class="screen">
+      <h3>Psicólogo Virtual</h3>
+      <img src="https://via.placeholder.com/300x150?text=Psicologo+em+video" alt="Psicólogo" style="width: 100%; border-radius: 10px;">
+      <div class="item">👩‍⚕️ Olá, como posso te ajudar hoje?</div>
+      <div class="item">💬 [Você pode digitar aqui sua resposta]</div>
+      <button onclick="showScreen('mental')">Encerrar</button>
+    </div>
+
+    <!-- Tela de Saúde Física -->
     <div id="fisica" class="screen">
       <h3>Guia Saúde Física</h3>
-      <p>Faça exercícios diariamente</p>
-      <p>Durma bem</p>
+      <p>✅ Faça exercícios diariamente</p>
+      <p>😴 Durma bem</p>
       <button onclick="backToMenu()">Voltar</button>
     </div>
 
+    <!-- Tela de Alimentação -->
     <div id="alimentacao" class="screen">
       <h3>Guia Alimentação</h3>
-      <p>Coma frutas e legumes</p>
-      <p>Evite alimentos ultraprocessados</p>
+      <p>🥦 Coma frutas e legumes</p>
+      <p>🚫 Evite alimentos ultraprocessados</p>
       <button onclick="backToMenu()">Voltar</button>
     </div>
   </div>
